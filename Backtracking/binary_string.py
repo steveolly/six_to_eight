@@ -1,26 +1,19 @@
-def binary_strings(n):
+def binary_string(n):
     current = []
     result = []
 
     def backtrack():
         if len(current) == n:
-            result.append("".join(current))
+            result.append("".join(current.copy()))
             return
 
-        for digit in ["0", "1"]:
-            current.append(digit)
+        for i in ['0', '1']:
+            current.append(i)
             backtrack()
             current.pop()
-    backtrack()
-    return result
+        return result
+
+    return backtrack()
 
 
-def main():
-    print(binary_strings(0))
-    print(binary_strings(1))
-    print(binary_strings(2))
-    # print(len(binary_strings(4)))
-
-
-if __name__ == "__main__":
-    main()
+print(binary_string(4))
